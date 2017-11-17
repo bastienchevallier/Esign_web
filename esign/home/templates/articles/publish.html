@@ -1,0 +1,17 @@
+{% extends "base_accueil.html" %}
+{% block title %}ESign, une solution inédite pour la traduction LSF {% endblock %}
+{% block content %}
+	<header class="w3-container w3-light-grey" style="padding: 38px 16px" >
+	<br/>
+  	<h3 class=" w3-jumbo"> Publiez votre article</h3>
+	</header>
+
+	<form method="POST" action="." class="w3-container w3-margin w3-input w3-padding-16">
+		{% csrf_token %}
+    	{{ formset.management_form }}
+    	{% for form in formset %}
+    		{{form.as_p}}
+    		<p><button class="w3-button w3-black w3-margin" type="submit">Publier</button></p>
+    	{% endfor %}
+	</form>
+{% endblock %}

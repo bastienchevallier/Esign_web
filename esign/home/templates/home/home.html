@@ -1,0 +1,73 @@
+{% extends "base_accueil.html" %}
+{% block title %}ESign, une solution inédite pour la traduction LSF {% endblock %}
+{% block content %}
+
+	<header class="w3-container w3-light-grey w3-center" style="padding:128px 16px">
+  	<h1 class="w3-margin w3-jumbo">ESign</h1>
+  	<p class="w3-xlarge">une solution inédite de traduction en LSF</p>
+	</header>
+
+	<div class="w3-padding-small w3-container w3-black">
+    	<h1 id="project" >L'actualité de notre projet</h1>
+	</div>	
+    <div class="w3-content ">
+    	<div class="w3-two">
+     		{% for article in derniers_articles %}
+      			<h2 class="w3-padding-32">{{article.titre}}</h2>
+      			<p class="w3-text-grey">{{article.contenu|truncatewords_html:80}} <br/>
+      			<a href = "{% url 'read_article' id=article.id slug=article.slug%} ">Lire la suite </a>
+      			</p>
+      		{% empty %}
+				<p class="w3-text-grey">Aucun article pour le moment </p>
+			{% endfor %}
+			<h2 class="w3-padding-32">Postez-vous même l'actualité de la communauté sourde</h2>
+			<p class="w3-text-grey"> 
+			Vous aussi faites nous partagez les dernières actualités de la communauté sourde et malentendante. Travaillons ensemble !
+			<a href = "{% url 'publish' %} ">Postez votre article</a> <br/>
+			Modifiez également un article que vous avez déjà publier
+			<a href = "{% url 'modify_presentation' %} ">Modifiez votre article</a>
+			</p>
+  		</div>
+	</div>
+
+	<div class="w3-row-padding w3-padding-small w3-container w3-black">
+		<h1 id="team">Notre équipe</h1>
+	</div>	
+ 	<div class="w3-content">
+  		<div class="w3-two">
+  			<p class="w3-text-grey"> 
+			Arnaud (plutôt Manuel), Baptiste et Bastien sont trop forts <br/>
+			</p>
+    	</div>
+  	</div>
+
+	<div class="w3-row-padding w3-padding-small w3-container w3-black">
+		<h1 id="partners">Nos partenaires</h1>
+	</div>	
+ 	<div class="w3-content ">
+    	<div class="w3-two">
+			<p class="w3-text-grey"> 
+			Nous souhaitons remercier l'ensemble de nos partenaires ! <br/> <br/>
+			{% load static %}
+			<img src="{% static 'img/ISAE_SUPAERO_72_cmjn.png' %}" alt="ISAE_logo" height="60" width="90" />
+			&nbsp;&nbsp;&nbsp;&nbsp; L'ISAE-Supaero, notre école <br/> <br/>
+			<img src="{% static 'img/logo-fondation-isae-supaero.png' %}" alt="FONDATION_ISAE_logo" height="60" width="90" />
+			&nbsp;&nbsp;&nbsp;&nbsp; La Fondation ISAE-Supaero, pour l'attribution de sa bourse entrepreneuriale.
+			</p>
+    	</div>
+  	</div>
+
+
+	<div class="w3-row-padding w3-padding-small w3-container w3-black">
+		<h1 id="contact">Contactez-nous</h1>
+	</div>
+ 	<div class="w3-content ">
+   		<div class="w3-two">
+			<p class="w3-text-grey"> 
+			Pour plus d'information, n'hésitez pas à nous contacter<br/>
+			<a href="mailto:contact.esign@gmail.com"> Ecrivez-nous !</a> Nous répondrons le plus rapidement possible
+			</p>
+    	</div>
+  	</div>
+
+{% endblock %}

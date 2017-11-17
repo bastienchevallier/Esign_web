@@ -1,0 +1,19 @@
+{% extends "base_accueil.html" %}
+{% block title %}ESign, une solution inédite pour la traduction LSF {% endblock %}
+{% block content %}
+	<header class="w3-container w3-light-grey" style="padding: 38px 16px" >
+	<br/>
+  	<h3 class=" w3-jumbo"> Modifiez un article</h3>
+	</header>
+
+	{% if error %}
+	<p class="w3-container w3-margin w3-input w3-padding-16"> Une erreur est survenue, veuillez recommencer</p>
+	{% endif %}
+
+	<p class="w3-container w3-margin w3-padding-16"> Une erreur est survenue, veuillez revenir à la page précédente et recommencer</p>
+	<form method='POST' action="." class="w3-container w3-margin w3-input w3-padding-16">
+		{% csrf_token %}
+    	{{form.as_p}}
+        <p><button class="w3-button w3-black w3-margin" type="submit" >Modifier</button></p> 
+	</form>
+{% endblock %}

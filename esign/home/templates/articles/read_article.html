@@ -1,0 +1,14 @@
+{% extends "base_accueil.html" %}
+{% block title %}ESign, une solution inédite pour la traduction LSF {% endblock %}
+{% block content %}
+	<header class="w3-container w3-light-grey w3-center" style="margin-top:58px;margin-bottom:26px">
+  	<h1 class="w3-margin w3-xxxlarge">{{ article.titre }} </h1>
+	</header>
+
+	<div class="w3-padding-small w3-container">
+    	<h1 id="project" class="w3-xlarge w3-margin">Rédigé par {{article.auteur.user.username }}, le {{ article.date|date:"DATE_FORMAT" }}</h1>
+	</div>	
+
+	<div class="w3-container w3-twothird w3-justify" style="margin-left:8em">{{ article.contenu|linebreaks }}
+	</div>
+{% endblock %}

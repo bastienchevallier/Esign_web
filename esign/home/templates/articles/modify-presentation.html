@@ -1,0 +1,19 @@
+{% extends "base_accueil.html" %}
+{% block title %}ESign, une solution inédite pour la traduction LSF {% endblock %}
+{% block content %}
+	<header class="w3-container w3-light-grey" style="padding: 38px 16px" >
+	<br/>
+  	<h3 class=" w3-jumbo"> Modification de votre article</h3>
+	</header>
+	<div class="w3-row-padding w3-padding-32 w3-container">
+		<h1>Quel est l'article dont vous êtes l'auteur et que vous souhaitez modifier ?</h1>
+	</div>
+  	<h2 class=" w3-row-padding w3-margin w3-padding-small">    Les articles :</h2>
+    <div class="w3-two w3-content">
+		<p class="w3-text-grey">
+		{% for article in derniers_articles %}
+			<h5 class="w3-border" > <strong> {{article.titre}} </strong> <br/> <a href = "{% url 'modify_article' slug=article.slug %}">Modifier </a> </h5>
+		{% empty %}
+			<p class="w3-text-grey">Aucun article pour le moment </p>
+		{% endfor %}	
+{% endblock %}
